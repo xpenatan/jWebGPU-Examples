@@ -51,7 +51,7 @@ fun registerDesktopRunTask(taskName: String, backend: DemoBackend, descriptionSu
     val artifactId = "webgpu-desktop-jni-${backend.id}_$currentDesktopPlatform"
     val coordinate = "${libs.versions.jWebGPUGroup.get()}:$artifactId"
     dependencies.add(backendRuntime.name,
-        "$coordinate:${libs.versions.jWebGPUSnapshot.get()}") {
+        "$coordinate:${libs.versions.jWebGPUVersion.get()}") {
         capabilities { requireCapability(coordinate) }
     }
     tasks.register<JavaExec>(taskName) {

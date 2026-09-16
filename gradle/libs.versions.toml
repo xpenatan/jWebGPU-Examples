@@ -1,6 +1,6 @@
 [versions]
 jWebGPUGroup = "com.github.xpenatan.jWebGPU"
-jWebGPUSnapshot = "-SNAPSHOT"
+jWebGPUVersion = "-SNAPSHOT"
 
 javaMain = "1.8"
 javaWeb = "17"
@@ -20,14 +20,14 @@ lwjglGlfw = { module = "org.lwjgl:lwjgl-glfw", version.ref = "lwjgl" }
 lwjglOpengl = { module = "org.lwjgl:lwjgl-opengl", version.ref = "lwjgl" }
 
 
-jWebGPUCore = { module = "com.github.xpenatan.jWebGPU:webgpu-core", version.ref = "jWebGPUSnapshot" }
-jWebGPUJni = { module = "com.github.xpenatan.jWebGPU:webgpu-jni", version.ref = "jWebGPUSnapshot" }
-jWebGPUDesktopJni = { module = "com.github.xpenatan.jWebGPU:webgpu-desktop-jni", version.ref = "jWebGPUSnapshot" }
-jWebGPUDesktopFFM = { module = "com.github.xpenatan.jWebGPU:webgpu-desktop-ffm", version.ref = "jWebGPUSnapshot" }
-jWebGPUWeb = { module = "com.github.xpenatan.jWebGPU:webgpu-web", version.ref = "jWebGPUSnapshot" }
-jWebGPUWebWasm = { module = "com.github.xpenatan.jWebGPU:webgpu-web_wasm", version.ref = "jWebGPUSnapshot" }
-jWebGPUAndroidWgpu = { module = "com.github.xpenatan.jWebGPU:webgpu-android-wgpu", version.ref = "jWebGPUSnapshot" }
-jWebGPUAndroidDawn = { module = "com.github.xpenatan.jWebGPU:webgpu-android-dawn", version.ref = "jWebGPUSnapshot" }
+jWebGPUCore = { module = "com.github.xpenatan.jWebGPU:webgpu-core", version.ref = "jWebGPUVersion" }
+jWebGPUJni = { module = "com.github.xpenatan.jWebGPU:webgpu-jni", version.ref = "jWebGPUVersion" }
+jWebGPUDesktopJni = { module = "com.github.xpenatan.jWebGPU:webgpu-desktop-jni", version.ref = "jWebGPUVersion" }
+jWebGPUDesktopFFM = { module = "com.github.xpenatan.jWebGPU:webgpu-desktop-ffm", version.ref = "jWebGPUVersion" }
+jWebGPUWeb = { module = "com.github.xpenatan.jWebGPU:webgpu-web", version.ref = "jWebGPUVersion" }
+jWebGPUWebWasm = { module = "com.github.xpenatan.jWebGPU:webgpu-web_wasm", version.ref = "jWebGPUVersion" }
+jWebGPUAndroidWgpu = { module = "com.github.xpenatan.jWebGPU:webgpu-android-wgpu", version.ref = "jWebGPUVersion" }
+jWebGPUAndroidDawn = { module = "com.github.xpenatan.jWebGPU:webgpu-android-dawn", version.ref = "jWebGPUVersion" }
 
 [plugins]
 androidLibrary = { id = "com.android.library", version.ref = "androidGradlePlugin" }
