@@ -20,27 +20,32 @@ if (providers.gradleProperty("useLocalJWebGPU").orNull?.toBoolean() == true) {
     includeBuild(checkout) {
         dependencySubstitution {
             val group = "com.github.xpenatan.jWebGPU"
-            mapOf(
-                "webgpu-core" to ":webgpu:core",
-                "webgpu-jni" to ":webgpu:shared:jni",
-                "webgpu-desktop-jni" to ":webgpu:desktop:jni",
-                "webgpu-desktop-ffm" to ":webgpu:desktop:ffm",
-                "webgpu-web" to ":webgpu:web:wasm",
-                "webgpu-android-wgpu" to ":webgpu:android:jni",
-                "webgpu-android-dawn" to ":webgpu:android:jni"
-            ).forEach { (artifact, path) ->
-                substitute(module("$group:$artifact")).using(project(path))
-            }
+            substitute(module("$group:webgpu-core")).using(project(":webgpu:core"))
+            substitute(module("$group:webgpu-jni")).using(project(":webgpu:shared:jni"))
+            substitute(module("$group:webgpu-desktop-jni")).using(project(":webgpu:desktop:jni"))
+            substitute(module("$group:webgpu-desktop-ffm")).using(project(":webgpu:desktop:ffm"))
+            substitute(module("$group:webgpu-web")).using(project(":webgpu:web:wasm"))
+            substitute(module("$group:webgpu-android-wgpu")).using(project(":webgpu:android:jni"))
+            substitute(module("$group:webgpu-android-dawn")).using(project(":webgpu:android:jni"))
+
             // Native jars are separate Maven modules but variants of the local projects.
-            for (bridge in listOf("jni", "ffm")) {
-                for (backend in listOf("wgpu", "dawn")) {
-                    for (platform in listOf("windows_x64", "linux_x64", "mac_x64", "mac_arm64")) {
-                        val coordinate = "$group:webgpu-desktop-$bridge-${backend}_$platform"
-                        substitute(module(coordinate)).using(project(":webgpu:desktop:$bridge"))
-                    }
-                }
-            }
-            substitute(module("$group:webgpu-web_wasm")).using(project(":webgpu:web:wasm"))
+            substitute(module("$group:webgpu-desktop-jni-wgpu_windows_x64")).using(project(":webgpu:desktop:jni"))
+            substitute(module("$group:webgpu-desktop-jni-wgpu_linux_x64")).using(project(":webgpu:desktop:jni"))
+            substitute(module("$group:webgpu-desktop-jni-wgpu_mac_x64")).using(project(":webgpu:desktop:jni"))
+            substitute(module("$group:webgpu-desktop-jni-wgpu_mac_arm64")).using(project(":webgpu:desktop:jni"))
+            substitute(module("$group:webgpu-desktop-jni-dawn_windows_x64")).using(project(":webgpu:desktop:jni"))
+            substitute(module("$group:webgpu-desktop-jni-dawn_linux_x64")).using(project(":webgpu:desktop:jni"))
+            substitute(module("$group:webgpu-desktop-jni-dawn_mac_x64")).using(project(":webgpu:desktop:jni"))
+            substitute(module("$group:webgpu-desktop-jni-dawn_mac_arm64")).using(project(":webgpu:desktop:jni"))
+
+            substitute(module("$group:webgpu-desktop-ffm-wgpu_windows_x64")).using(project(":webgpu:desktop:ffm"))
+            substitute(module("$group:webgpu-desktop-ffm-wgpu_linux_x64")).using(project(":webgpu:desktop:ffm"))
+            substitute(module("$group:webgpu-desktop-ffm-wgpu_mac_x64")).using(project(":webgpu:desktop:ffm"))
+            substitute(module("$group:webgpu-desktop-ffm-wgpu_mac_arm64")).using(project(":webgpu:desktop:ffm"))
+            substitute(module("$group:webgpu-desktop-ffm-dawn_windows_x64")).using(project(":webgpu:desktop:ffm"))
+            substitute(module("$group:webgpu-desktop-ffm-dawn_linux_x64")).using(project(":webgpu:desktop:ffm"))
+            substitute(module("$group:webgpu-desktop-ffm-dawn_mac_x64")).using(project(":webgpu:desktop:ffm"))
+            substitute(module("$group:webgpu-desktop-ffm-dawn_mac_arm64")).using(project(":webgpu:desktop:ffm"))
         }
     }
 }

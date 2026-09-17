@@ -13,8 +13,6 @@ dependencies {
 
     // TeaVM replaces the core API with gen.web implementations while compiling.
     api(libs.jWebGPUWeb)
-    runtimeOnly(libs.jWebGPUWebWasm) {
-        capabilities { requireCapability("com.github.xpenatan.jWebGPU:webgpu-web_wasm") }
-    }
+    runtimeOnly(libs.jWebGPUWebWasm)
     implementation(libs.jMultiplatform)
 }
